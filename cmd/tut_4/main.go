@@ -18,7 +18,7 @@ func main() {
 	fmt.Println(intArr1)
 
 	intArr2 := [4]int32{1, 2, 3} // last index values stays default
-	// intArr2 := [...]int32 {1,2,3} // this too is valid and creates an array of size 3
+	// intArr2 := [...]int32 {1,2,3,1} // this too is valid and creates an array of size 4
 	fmt.Println(intArr2)
 
 	//	slices
@@ -44,6 +44,14 @@ func main() {
 	//	to increase effeciecny of function, we
 	fmt.Println(intSlice3)
 
+	////// 2d slices
+
+	matrix := make([][]int32, 3)
+	for i := range matrix {
+		matrix[i] = make([]int32, 4)
+	}
+	// matrix is now a 3*4 2d array
+
 	// maps
 	var myMap map[string]uint8 = make(map[string]uint8)
 	// means that both keys are of type string and values are of type uint8
@@ -55,7 +63,7 @@ func main() {
 	}
 
 	fmt.Println(myMap2)
-	fmt.Println(myMap2["xyz"]) // returns 0, 
+	fmt.Println(myMap2["xyz"]) // returns 0,
 	// map also return an optional second value , which is a bool, its true if the key exists in the map
 	var age, ok = myMap2["rahul"]
 	if ok {
@@ -63,7 +71,7 @@ func main() {
 	} else {
 		println("doesnt exist in map")
 	}
-	myMap["rahul"] = 10;
+	myMap["rahul"] = 10
 	// this adds another key-value pair into the map
 
 	delete(myMap, "sahil") // to delete a key-value pair
@@ -76,7 +84,7 @@ func main() {
 
 	for name, age := range myMap2 {
 		// fmt.Printf("name : %v, age : %v \n", name, age)
-		fmt.Println("name is", name , "and age is", age) // prints with a space
+		fmt.Println("name is", name, "and age is", age) // prints with a space
 	}
 	// when iterating over a map, the order of the keys is not preserved
 

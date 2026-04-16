@@ -12,6 +12,39 @@ func main() {
 	var age int16 = 20
 	helper(myString, age)
 	// fmt.Println(divHelper(10,2));
+
+	//function literals
+	// an anonymous function—a function defined without a name
+
+	result := func(a int, b int) int {
+		return a + b
+	}(3, 8)
+
+	add := func(a int, b int) int {
+		return a + b
+	}
+
+	fmt.Println(result)
+	fmt.Println(add(2, 3))
+
+	// variadic functions
+	// functions that can take a variable number of argumnets of a type
+	sum(1, 2)    //=> [1 2] 3
+	sum(1, 2, 3) // => [1 2 3] 6
+
+	nums := []int{1, 2, 3, 4}
+	sum(nums...) // => [1 2 3 4] 10
+
+}
+
+// variadic functions
+func sum(nums ...int) {
+	fmt.Print(nums, " ")
+	total := 0
+	for _, num := range nums {
+		total += num
+	}
+	fmt.Println(total)
 }
 
 func helper(myString string, age int16) {
@@ -34,7 +67,7 @@ func helper(myString string, age int16) {
 	}
 	// we dont need to write break statements in golang
 	// in switch both , or || can be used but
-	// fun(), gun() and fun()  || gun() are different, [ with , both functions are evaluated, with ||, concept of short circuit works]
+	// fun(), gun() and fun() || gun() are different, [ with , both functions are evaluated, with ||, concept of short circuit works]
 
 	// conditions switch statement
 	switch rem {
